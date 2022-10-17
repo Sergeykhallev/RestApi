@@ -1,12 +1,10 @@
 <?php
 
-namespace App\Http\Resources\Post;
+namespace App\Http\Resources\Tag;
 
-use App\Http\Resources\Catrgory\CategoryResourse;
-use App\Http\Resources\Tag\TagResourse;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class PostResource extends JsonResource
+class TagResourse extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -19,10 +17,6 @@ class PostResource extends JsonResource
         return [
             'id' => $this->id,
             'title' => $this->title,
-            'content' => $this->content,
-            'image' => $this->image,
-            'category' => new CategoryResourse($this->category),
-            'tags' => TagResourse::collection($this->tags),
         ];
     }
 }
